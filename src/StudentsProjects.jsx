@@ -78,7 +78,7 @@ export default function StudentsProjects() {
   return (
     <>
       <div className="page-header">
-        <h1>🚀 Proyectos del alumnado</h1>
+        <h1>PROYECTOS DEL CURSO DE PROGRAMACIÓN 2026 – TRAZOS</h1>
         <p>
           Accede a las demos y repositorios de todos los proyectos realizados.
         </p>
