@@ -4,12 +4,7 @@ const Button = ({ href, children }) => {
   if (!href) return null;
 
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      className="student-button"
-    >
+    <a href={href} target="_blank" rel="noreferrer" className="student-button">
       {children}
     </a>
   );
@@ -48,7 +43,6 @@ export default function StudentsProjects() {
                 </h2>
 
                 <div className="student-section">
-
                   {Array.isArray(project.demo) ? (
                     project.demo.map((url, i) => (
                       <Button key={url} href={url}>
@@ -66,21 +60,22 @@ export default function StudentsProjects() {
                   <h3>💻 Repositorios</h3>
 
                   {project.github.repo && (
-                    <Button href={project.github.repo}>
-                      Repositorio
-                    </Button>
+                    <Button href={project.github.repo}>Repositorio</Button>
                   )}
 
                   {project.github.frontend && (
-                    <Button href={project.github.frontend}>
-                      Frontend
-                    </Button>
+                    <>
+                      <Button href={project.github.frontend}>Frontend</Button>
+                      <Button href={project.github.frontend_1}>Frontend 1</Button>
+                      <Button href={project.github.frontend_2}>Frontend 2</Button>
+                    </>
                   )}
 
                   {project.github.backend && (
-                    <Button href={project.github.backend}>
-                      Backend
-                    </Button>
+                    <>
+                      <Button href={project.github.backend}>Backend</Button>
+                      <Button href={project.github.backend_2}>Backend 2</Button>
+                    </>
                   )}
                 </div>
               </article>
