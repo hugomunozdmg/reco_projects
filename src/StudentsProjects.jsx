@@ -1,118 +1,93 @@
-import students from "./assets/data.js";
+import projectsData from "./assets/data.js";
 
-export default function StudentsProjects() {
-  const renderProject = (title, url, github) => (
-    <div className="student-section">
-      <h3>{title}</h3>
-
-      {Array.isArray(url) ? (
-        <div className="student-links">
-          {url.map((link, index) => (
-            <a
-              key={link}
-              className="student-button"
-              href={link}
-              target="_blank"
-              rel="noreferrer"
-            >
-              🌐 Demo {index + 1}
-            </a>
-          ))}
-        </div>
-      ) : url ? (
-        <div className="student-links">
-          <a
-            className="student-button"
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-          >
-            🌐 Demo
-          </a>
-        </div>
-      ) : (
-        <p className="no-data">No disponible</p>
-      )}
-
-      {github && (
-        <div className="student-links">
-          {typeof github === "string" ? (
-            <a
-              className="student-button"
-              href={github}
-              target="_blank"
-              rel="noreferrer"
-            >
-              💻 Repositorio
-            </a>
-          ) : (
-            <>
-              {github.frontend && (
-                <a
-                  className="student-button"
-                  href={github.frontend}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  💻 Frontend
-                </a>
-              )}
-
-              {github.backend && (
-                <a
-                  className="student-button"
-                  href={github.backend}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  ⚙️ Backend
-                </a>
-              )}
-            </>
-          )}
-        </div>
-      )}
-    </div>
-  );
+const Button = ({ href, children }) => {
+  if (!href) return null;
 
   return (
-    <>
-      <div className="page-header">
-        <h1>PROYECTOS DEL CURSO DE PROGRAMACIÓN 2026 – TRAZOS</h1>
-        <p>
-          Accede a las demos y repositorios de todos los proyectos realizados.
-        </p>
-      </div>
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="student-button"
+    >
+      {children}
+    </a>
+  );
+};
 
-      <div className="students-container">
-        {students.map((student) => (
-          <div className="student-card" key={student.name}>
-            <h2>{student.name}</h2>
-
-            {renderProject(
-              "📘 Primer proyecto",
-              student.url_first_project,
-              student.github_first_project
-            )}
-
-            <div className="student-divider" />
-
-            {renderProject(
-              "👥 Segundo proyecto",
-              student.url_second_project,
-              student.github_second_project
-            )}
-
-            <div className="student-divider" />
-
-            {renderProject(
-              "🎓 Proyecto final",
-              student.url_final_project,
-              student.github_final_project
-            )}
+export default function StudentsProjects() {
+  return (
+    <div className="projects-page">
+      {projectsData.map((section) => (
+        <section className="project-section" key={section.id}>
+          <div className="page-header">
+            <h1>{section.title}</h1>
           </div>
-        ))}
-      </div>
-    </>
+
+          <div className="students-container">
+            {section.projects.map((project, index) => (
+              <article
+                className="student-card"
+                key={project.student || project.team.join("-") || index}
+              >
+                <h2>
+                  {project.student ? (
+                    project.student
+                  ) : (
+                    <>
+                      👥 Equipo
+                      <div className="team-members">
+                        {project.team.map((member) => (
+                          <span key={member} className="member-badge">
+                            {member}
+                          </span>
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </h2>
+
+                <div className="student-section">
+
+                  {Array.isArray(project.demo) ? (
+                    project.demo.map((url, i) => (
+                      <Button key={url} href={url}>
+                        Demo {i + 1}
+                      </Button>
+                    ))
+                  ) : (
+                    <Button href={project.demo}>🌐 Demo</Button>
+                  )}
+                </div>
+
+                <div className="student-divider" />
+
+                <div className="student-section">
+                  <h3>💻 Repositorios</h3>
+
+                  {project.github.repo && (
+                    <Button href={project.github.repo}>
+                      Repositorio
+                    </Button>
+                  )}
+
+                  {project.github.frontend && (
+                    <Button href={project.github.frontend}>
+                      Frontend
+                    </Button>
+                  )}
+
+                  {project.github.backend && (
+                    <Button href={project.github.backend}>
+                      Backend
+                    </Button>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
   );
 }
