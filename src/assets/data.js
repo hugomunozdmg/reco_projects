@@ -59,10 +59,8 @@ export default [
         team: ["Carlos", "Luca"],
         demo: "https://frntnd-red-social.vercel.app/",
         github: {
-          frontend:
-            "https://github.com/MekaKoatl/FRNTND_Red_Social.git",
-          backend:
-            "https://github.com/MekaKoatl/BCKND_Red_Social.git",
+          frontend: "https://github.com/MekaKoatl/FRNTND_Red_Social.git",
+          backend: "https://github.com/MekaKoatl/BCKND_Red_Social.git",
         },
       },
     ],
@@ -86,10 +84,8 @@ export default [
         student: "Karla",
         demo: "https://rsvp-jet.vercel.app/",
         github: {
-          frontend:
-            "https://github.com/karlaperezn/frontend-kp-proyecto-final",
-          backend:
-            "https://github.com/karlaperezn/backend-kp-proyecto-final",
+          frontend: "https://github.com/karlaperezn/frontend-kp-proyecto-final",
+          backend: "https://github.com/karlaperezn/backend-kp-proyecto-final",
         },
       },
       {
@@ -99,17 +95,17 @@ export default [
           "https://guess-the-geo.vercel.app/",
         ],
         github: {
-          frontend: "https://github.com/MekaKoatl/craf-pokedex",
+          frontend_1: "https://github.com/MekaKoatl/craf-pokedex",
+          frontend_2: "https://github.com/MekaKoatl/guess-the-geo.git",
+          backend_2: "https://github.com/MekaKoatl/guess-the-geo-api.git",
         },
       },
       {
         student: "Cristina",
         demo: "https://front-proyectofinal-three.vercel.app/",
         github: {
-          frontend:
-            "https://github.com/crislozanor05/front-proyectofinal",
-          backend:
-            "https://github.com/crislozanor05/back-proyectofinal",
+          frontend: "https://github.com/crislozanor05/front-proyectofinal",
+          backend: "https://github.com/crislozanor05/back-proyectofinal",
         },
       },
       {
