@@ -62,21 +62,15 @@ export default function StudentsProjects() {
                   {project.github.repo && (
                     <Button href={project.github.repo}>Repositorio</Button>
                   )}
-
-                  {project.github.frontend && (
                     <>
                       <Button href={project.github.frontend}>Frontend</Button>
                       <Button href={project.github.frontend_1}>Frontend 1</Button>
                       <Button href={project.github.frontend_2}>Frontend 2</Button>
                     </>
-                  )}
-
-                  {project.github.backend && (
                     <>
                       <Button href={project.github.backend}>Backend</Button>
                       <Button href={project.github.backend_2}>Backend 2</Button>
                     </>
-                  )}
                 </div>
               </article>
             ))}
